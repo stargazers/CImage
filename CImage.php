@@ -68,7 +68,7 @@
 			$this->quality = 100;
 
 			// By default image output format is JPG.
-			$this->format == 'JPG';
+			$this->format = 'JPG';
 
 			// If image is not found, just throw Exception.
 			if(! file_exists( $image ) )
@@ -222,7 +222,7 @@
 			// This will scale image to take as much space as possible.
 			else if( $type == 'FIT' )
 			{
-				if( $width >= $height )
+				if( $original_width >= $original_height )
 				{
 					$tmp = $original_width / $width;
 					$width = $original_width / $tmp;
@@ -280,7 +280,6 @@
 			@brief Check if quality settings are correct
 				for selected output type, and if not,
 				fix them.
-		
 		*/
 		// *********************************************
 		private function correctQuality()
